@@ -1,57 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/04 10:09:55 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/04 11:15:40 by bdevessi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_putchar(char a);
-
-int	is_equal_minus_or_more(char c)
-{
-	return (c == '+' || c == '-');
-}
-
-int	is_int_signed(char *str, int i)
-{
-	if (!i)
-		return (0);
-	if (!is_equal_minus_or_more(str[i - 1]) && is_equal_minus_or_more(str[i]))
-	{
-		return (str[i] == '-' ? -1 : 1);
-	}
-	return (0);
-}
-
-void	ft_atoi(char *str)
+int		ft_atoi(char *str)
 {
 	int i;
-	int total;
-	int is_signed;
 	int mod;
+	int total;
 
-	i = -1;
-	total = 0;
-	is_signed = 0;
+	i = 0;
 	mod = 1;
-	while (*(str + ++i) != '\0')
-	{
-		if (str[i] < '!')
-			continue;
-		else if (str[i] >= '0' && str[i] <= '9')
-		{
-			total = total * 10 + (str[i] - '0');
-		}
-		else
-		{
-			is_signed = is_int_signed(str, i);
-			if (!is_signed)
-				break ;
-			else
-				mod = is_signed == 1 ? 1 : -1;
-		}
-	}
-	printf("ft : %i\n", total * mod);
-}
-
-int main()
-{
-	ft_atoi("1    2     3");
-	printf("atoi : %i", atoi("--1    2     3"));
+	total = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		mod = str[i++] == '+' ? 1 : -1;
+	while (str[i] >= '0' && str[i] <= '9')
+		total = total * 10 + (str[i++] - '0');
+	return (total * mod);
 }
