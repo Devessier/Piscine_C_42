@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 14:44:48 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 15:49:11 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/02 13:13:07 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/04 17:18:39 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+void	ft_putchar(char a);
 
-int		main(void)
+void	ft_putnbr(int nb)
 {
-	rush(10, 10);
-	return (0);
+	int higher_10_pow;
+	int tmp;
+	int mod;
+
+	mod = 1;
+	higher_10_pow = 1;
+	if (nb < 0)
+	{
+		mod = -1;
+		ft_putchar('-');
+	}
+	tmp = nb;
+	while (tmp /= 10)
+		higher_10_pow *= 10;
+	while (higher_10_pow)
+	{
+		ft_putchar(nb / higher_10_pow % 10 * mod + '0');
+		higher_10_pow /= 10;
+	}
 }

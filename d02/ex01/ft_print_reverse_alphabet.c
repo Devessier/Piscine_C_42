@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 14:44:48 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 15:49:11 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/01 17:07:32 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/01 17:13:49 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+void	ft_putchar(char a);
 
-int		main(void)
+void	ft_print_reverse_alphabet(void)
 {
-	rush(10, 10);
-	return (0);
+	char c;
+
+	c = 'z';
+	while (c >= 'a')
+		ft_putchar(c--);
 }

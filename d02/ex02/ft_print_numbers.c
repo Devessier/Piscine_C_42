@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 14:44:48 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 15:49:11 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/01 17:13:08 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/03 11:24:39 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+void	ft_putchar(char a);
 
-int		main(void)
+void	ft_print_numbers(void)
 {
-	rush(10, 10);
-	return (0);
+	char n;
+
+	n = '0';
+	while (n <= '9')
+		ft_putchar(n++);
 }
