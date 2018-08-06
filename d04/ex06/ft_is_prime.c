@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:32:19 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 17:52:48 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/05 21:37:28 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/06 09:02:55 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_sqrt(int nb)
+int		ft_is_prime(int nb)
 {
-	float floating_value;
-	int value;
-	int last;
+	long n;
+	int w;
 
-	value = nb / 2;
-	last = nb;
-	floating_value = value;
-	if (nb <= 0)
+	if (nb == 2 || nb == 3)
+		return (1);
+	if (!(nb % 2) || !(nb % 3))
 		return (0);
-	while (value != last)
+	n = 5;
+	w = 2;
+	while (n * n <= nb)
 	{
-		last = value;
-		floating_value = .5 * ((float)value + (float)nb / value);
-		value = floating_value;
+		if (!(nb % n))
+			return (0);
+		n += w;
+		w = 6 - w;
 	}
-	return (floating_value == (float)value ? value : 0);
+	return (1);
 }

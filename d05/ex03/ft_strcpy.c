@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:32:19 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 17:52:48 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/06 15:53:06 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/06 17:01:09 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_sqrt(int nb)
+char	*ft_strcpy(char *dest, char *src)
 {
-	float floating_value;
-	int value;
-	int last;
+	char *tmp;
 
-	value = nb / 2;
-	last = nb;
-	floating_value = value;
-	if (nb <= 0)
-		return (0);
-	while (value != last)
-	{
-		last = value;
-		floating_value = .5 * ((float)value + (float)nb / value);
-		value = floating_value;
-	}
-	return (floating_value == (float)value ? value : 0);
+	tmp = dest;
+	while (*src != '\0')
+		*tmp++ = *src++;
+	*tmp = '\0';
+	return (dest);
 }

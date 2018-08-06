@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:32:19 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 17:52:48 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/02 13:13:07 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/04 17:18:39 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_sqrt(int nb)
-{
-	float floating_value;
-	int value;
-	int last;
+void	ft_putchar(char a);
 
-	value = nb / 2;
-	last = nb;
-	floating_value = value;
-	if (nb <= 0)
-		return (0);
-	while (value != last)
+void	ft_putnbr(int nb)
+{
+	int higher_10_pow;
+	int tmp;
+	int mod;
+
+	mod = 1;
+	higher_10_pow = 1;
+	if (nb < 0)
 	{
-		last = value;
-		floating_value = .5 * ((float)value + (float)nb / value);
-		value = floating_value;
+		mod = -1;
+		ft_putchar('-');
 	}
-	return (floating_value == (float)value ? value : 0);
+	tmp = nb;
+	while (tmp /= 10)
+		higher_10_pow *= 10;
+	while (higher_10_pow)
+	{
+		ft_putchar(nb / higher_10_pow % 10 * mod + '0');
+		higher_10_pow /= 10;
+	}
 }

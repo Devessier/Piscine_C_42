@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:32:19 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 17:52:48 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/06 20:36:25 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/06 20:53:11 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_sqrt(int nb)
-{
-	float floating_value;
-	int value;
-	int last;
+#define NULL 0
 
-	value = nb / 2;
-	last = nb;
-	floating_value = value;
-	if (nb <= 0)
-		return (0);
-	while (value != last)
+char	*ft_strstr(char *str, char *to_find)
+{
+	char *string;
+	char *substring;
+
+	while (*str)
 	{
-		last = value;
-		floating_value = .5 * ((float)value + (float)nb / value);
-		value = floating_value;
+		string = str;
+		substring = to_find;
+
+		while (*str && *substring && *str++ == *substring++)
+			;
+		if (!*substring)
+			return string;
+		str = string + 1;
 	}
-	return (floating_value == (float)value ? value : 0);
+	return (NULL);
 }

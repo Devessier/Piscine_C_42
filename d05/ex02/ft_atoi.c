@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/04 20:32:19 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 17:52:48 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/04 10:09:55 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/04 11:15:40 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_sqrt(int nb)
+int		ft_atoi(char *str)
 {
-	float floating_value;
-	int value;
-	int last;
+	int i;
+	int mod;
+	int total;
 
-	value = nb / 2;
-	last = nb;
-	floating_value = value;
-	if (nb <= 0)
-		return (0);
-	while (value != last)
-	{
-		last = value;
-		floating_value = .5 * ((float)value + (float)nb / value);
-		value = floating_value;
-	}
-	return (floating_value == (float)value ? value : 0);
+	i = 0;
+	mod = 1;
+	total = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		mod = str[i++] == '+' ? 1 : -1;
+	while (str[i] >= '0' && str[i] <= '9')
+		total = total * 10 + (str[i++] - '0');
+	return (total * mod);
 }
