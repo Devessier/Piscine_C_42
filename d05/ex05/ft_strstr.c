@@ -17,13 +17,15 @@ char	*ft_strstr(char *str, char *to_find)
 	char *string;
 	char *substring;
 
+	string = NULL;
+	substring = NULL;
 	while (*str)
 	{
 		string = str;
 		substring = to_find;
 
-		while (*str && *substring && *str++ == *substring++)
-			;
+		while (*str && *substring && *str++ == *substring)
+			substring++;
 		if (!*substring)
 			return string;
 		str = string + 1;
