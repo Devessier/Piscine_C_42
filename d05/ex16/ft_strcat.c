@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 16:40:41 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/07 14:49:25 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/07 12:59:25 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/07 13:23:07 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strcat(char *dest, char *src)
 {
 	char *tmp;
 
 	tmp = dest;
-	while (n--)
-		*tmp++ = *src ? *src++ : 0;
+	while (*tmp)
+		tmp++;
+	while (*src)
+		*tmp++ = *src++;
+	*tmp = '\0';
 	return (dest);
 }

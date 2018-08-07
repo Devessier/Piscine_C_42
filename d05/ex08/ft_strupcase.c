@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 16:40:41 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/07 14:49:25 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/07 09:46:18 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/07 10:41:30 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strupcase(char *str)
 {
 	char *tmp;
 
-	tmp = dest;
-	while (n--)
-		*tmp++ = *src ? *src++ : 0;
-	return (dest);
+	tmp = str - 1;
+	while (*++tmp)
+		if (*tmp >= 'a' && *tmp <= 'z')
+			*tmp -= ' ';
+	return (str);
 }
