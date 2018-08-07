@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/06 16:40:41 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/07 14:49:25 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/07 09:36:21 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/07 09:45:42 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	char *tmp;
-
-	tmp = dest;
-	while (n--)
-		*tmp++ = *src ? *src++ : 0;
-	return (dest);
+	while (*s1++ == *s2 && n--)
+		if (!*s2)
+			return (0);
+	return (*s1 - *s2);
 }
