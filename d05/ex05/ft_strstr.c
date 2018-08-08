@@ -15,10 +15,16 @@ char	*ft_strstr(char *str, char *to_find)
 	char *string;
 	char *substring;
 
+	string = NULL;
+	substring = NULL;
 	while (*str)
 	{
 		string = str;
 		substring = to_find;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f43e77557c19e73cfe38b3eef959a10a432b14d9
 		while (*str && *substring && *str++ == *substring)
 			substring++;
 		if (!*substring)
