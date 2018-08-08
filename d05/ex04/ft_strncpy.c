@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 16:40:41 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/07 14:49:25 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/08 19:24:30 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 
 	tmp = dest;
 	while (n--)
-		*tmp++ = *src ? *src++ : 0;
+		*tmp++ = *src ? *src++ : '\0';
 	return (dest);
 }

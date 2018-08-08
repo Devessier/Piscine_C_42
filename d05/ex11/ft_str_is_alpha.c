@@ -6,13 +6,13 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 11:23:53 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/07 11:40:28 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/08 19:51:46 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_str_is_alpha(char *str)
 {
 	while ((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z'))
-			str++;
+		str++;
 	return (!*str);
 }
