@@ -6,11 +6,12 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 16:46:37 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/17 09:35:22 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/17 09:38:44 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 #define IS_DELIMITER(s) ((s) == ' ' || (s) == '\t' || (s) == '\n')
 
 char	*ft_split_strdup(char *str)

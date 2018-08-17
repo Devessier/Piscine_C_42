@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 14:31:09 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/13 16:45:53 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/16 18:31:15 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int		ft_strlen(char *str)
 
 char	*ft_concat_params(int argc, char **argv)
 {
-	char *tmp;
-	int len;
-	int i;
+	char	*tmp;
+	int		len;
+	int		i;
 
 	argc--;
 	argv++;
@@ -34,7 +34,8 @@ char	*ft_concat_params(int argc, char **argv)
 	len = 0;
 	while (++i < argc)
 		len += ft_strlen(argv[i]) + 1;
-	tmp = malloc(sizeof(char) * len);
+	if (!(tmp = malloc(sizeof(char) * len)))
+		return (0);
 	i = -1;
 	while (++i < argc)
 	{

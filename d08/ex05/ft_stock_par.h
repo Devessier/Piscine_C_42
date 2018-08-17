@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_stock_par.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 11:51:42 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/17 10:26:00 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/16 10:32:36 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/17 09:54:16 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_STOCK_PAR_H
+# define FT_STOCK_PAR_H
+# include <stdlib.h>
 
-int		*ft_range(int min, int max)
+typedef struct	s_stock_par
 {
-	int		*tmp;
-	int		i;
+	int		size_param;
+	char	*str;
+	char	*copy;
+	char	**tab;
+}				t_stock_par;
 
-	if (min >= max || !(tmp = malloc(sizeof(int) * (max - min))))
-		return (NULL);
-	i = 0;
-	while (min < max)
-		tmp[i++] = min++;
-	return (tmp);
-}
+#endif
+
+#ifndef FT_SPLIT_WHITESPACE
+# define FT_SPLIT_WHITESPACE
+
+char			**ft_split_whitespaces(char *str);
+
+#endif

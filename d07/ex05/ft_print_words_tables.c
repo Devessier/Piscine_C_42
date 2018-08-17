@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/13 11:51:42 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/17 10:26:00 by bdevessi         ###   ########.fr       */
+/*   Created: 2018/08/13 22:03:21 by bdevessi          #+#    #+#             */
+/*   Updated: 2018/08/17 09:57:14 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+void	ft_putchar(char c);
 
-int		*ft_range(int min, int max)
+void	ft_putstr(char *str)
 {
-	int		*tmp;
-	int		i;
+	while (*str)
+		ft_putchar(*str++);
+	ft_putchar('\n');
+}
 
-	if (min >= max || !(tmp = malloc(sizeof(int) * (max - min))))
-		return (NULL);
-	i = 0;
-	while (min < max)
-		tmp[i++] = min++;
-	return (tmp);
+void	ft_print_words_tables(char **tab)
+{
+	while (*tab)
+		ft_putstr(*tab++);
 }
