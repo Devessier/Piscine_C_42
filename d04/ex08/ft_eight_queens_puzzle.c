@@ -6,32 +6,32 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 10:28:23 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/06 15:06:00 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/07 17:36:27 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define N 8
 
-int		is_position_correct(int queens_columns[N], int row, int line)
+int		is_position_correct(int queens_columns[N], int row, int col)
 {
 	int y_pos;
 	int x_pos;
 
 	y_pos = -1;
-	if (!line)
+	if (!col)
 		return (1);
-	while (++y_pos < line)
+	while (++y_pos < col)
 	{
 		x_pos = y_pos[queens_columns];
 		if (x_pos == row
-				|| x_pos == row + line - y_pos
-				|| x_pos == row - line + y_pos)
+				|| x_pos == row + col - y_pos
+				|| x_pos == row - col + y_pos)
 			return (0);
 	}
 	return (1);
 }
 
-int		backtracking_solving(int queens_columns[N], int line)
+int		backtracking_solving(int queens_columns[N], int col)
 {
 	int row;
 	int total;
@@ -40,13 +40,13 @@ int		backtracking_solving(int queens_columns[N], int line)
 	total = 0;
 	while (++row < N)
 	{
-		if (is_position_correct(queens_columns, row, line))
+		if (is_position_correct(queens_columns, row, col))
 		{
-			queens_columns[line] = row;
-			if (line == N - 1)
+			queens_columns[col] = row;
+			if (col == N - 1)
 				total++;
 			else
-				total += backtracking_solving(queens_columns, line + 1);
+				total += backtracking_solving(queens_columns, col + 1);
 		}
 	}
 	return (total);

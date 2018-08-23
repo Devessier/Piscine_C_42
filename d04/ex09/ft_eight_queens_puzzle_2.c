@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 10:28:23 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/06 15:27:34 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/11 20:29:33 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,39 +24,39 @@ void	print_results(int queens_columns[N])
 	ft_putchar('\n');
 }
 
-int		is_position_correct(int queens_columns[N], int row, int line)
+int		is_position_correct(int queens_columns[N], int row, int col)
 {
 	int y_pos;
 	int x_pos;
 
-	if (!line)
+	if (!col)
 		return (1);
 	y_pos = -1;
-	while (++y_pos < line)
+	while (++y_pos < col)
 	{
 		x_pos = y_pos[queens_columns];
 		if (x_pos == row
-				|| x_pos == row + line - y_pos
-				|| x_pos == row - line + y_pos)
+				|| x_pos == row + col - y_pos
+				|| x_pos == row - col + y_pos)
 			return (0);
 	}
 	return (1);
 }
 
-void	backtracking_solving(int queens_columns[N], int line)
+void	backtracking_solving(int queens_columns[N], int col)
 {
 	int row;
 
 	row = -1;
 	while (++row < N)
 	{
-		if (is_position_correct(queens_columns, row, line))
+		if (is_position_correct(queens_columns, row, col))
 		{
-			queens_columns[line] = row;
-			if (line == N - 1)
+			queens_columns[col] = row;
+			if (col == N - 1)
 				print_results(queens_columns);
 			else
-				backtracking_solving(queens_columns, line + 1);
+				backtracking_solving(queens_columns, col + 1);
 		}
 	}
 }

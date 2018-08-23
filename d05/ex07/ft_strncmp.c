@@ -6,14 +6,15 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 09:36:21 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/07 09:45:42 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/13 09:12:28 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	while (*s1++ == *s2 && n--)
-		if (!*s2)
-			return (0);
-	return (*s1 - *s2);
+	if (!*s1 || !*s2)
+		return (*s1 - *s2);
+	while (n-- && *s1++ == *s2++ && !(*s1 == '\0' && *s2 == '\0'))
+		;
+	return (*(s1 - 1) - *(s2 - 1));
 }

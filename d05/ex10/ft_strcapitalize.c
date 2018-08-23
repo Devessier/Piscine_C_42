@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 10:48:51 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/08 19:49:51 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/09 18:27:52 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ char	*ft_strcapitalize(char *str)
 					*tmp -= ' ';
 				is_first ^= 1;
 			}
+			else if (*tmp >= 'A' && *tmp <= 'Z')
+				*tmp += ' ';
 			tmp++;
 		}
 	}

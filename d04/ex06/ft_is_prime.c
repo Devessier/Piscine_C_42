@@ -6,27 +6,27 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/05 21:37:28 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/06 09:02:55 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/07 16:23:45 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_is_prime(int nb)
 {
-	long n;
-	int w;
+	long	n;
+	int		a;
 
 	if (nb == 2 || nb == 3)
 		return (1);
-	if (!(nb % 2) || !(nb % 3))
+	if (nb <= 1 || !(nb % 2) || !(nb % 3))
 		return (0);
 	n = 5;
-	w = 2;
+	a = 2;
 	while (n * n <= nb)
 	{
 		if (!(nb % n))
 			return (0);
-		n += w;
-		w = 6 - w;
+		n += a;
+		a = 6 - a;
 	}
 	return (1);
 }

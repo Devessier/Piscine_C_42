@@ -6,7 +6,7 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 14:23:46 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/08 20:32:05 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/09 10:18:41 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ int		base_length(char *base)
 	return (len);
 }
 
-int		is_print(char c)
-{
-	return (c >= '!' && c <= '~' && !(c == '+' || c == '-'));
-}
-
 int		check_symbols(char *base, int radix)
 {
 	int i;
@@ -38,7 +33,9 @@ int		check_symbols(char *base, int radix)
 	while (base[++j])
 	{
 		i = j;
-		if (!is_print(base[j]))
+		if (!(base[j] >= '!'
+					&& base[j] <= '~'
+					&& !(base[j] == '+' || base[j] == '-')))
 			return (0);
 		while (++i < radix)
 			if (base[i] == base[j])

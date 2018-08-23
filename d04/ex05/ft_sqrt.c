@@ -6,15 +6,15 @@
 /*   By: bdevessi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/04 20:32:19 by bdevessi          #+#    #+#             */
-/*   Updated: 2018/08/05 17:52:48 by bdevessi         ###   ########.fr       */
+/*   Updated: 2018/08/07 16:15:04 by bdevessi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_sqrt(int nb)
+int		ft_sqrt(int nb)
 {
-	float floating_value;
-	int value;
-	int last;
+	float	floating_value;
+	int		value;
+	int		last;
 
 	value = nb / 2;
 	last = nb;
